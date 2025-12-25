@@ -26,3 +26,8 @@
   </div>
 
 </div>
+
+---
+
+[Work](/work) · [Notes](/notes) · [Research](/research) ·  
+[GitHub](https://github.com/saucemachine) · [LinkedIn](https://linkedin.com/in/vladimirbelsch) · [Email](mailto:belschvladimir@gmail.com)
