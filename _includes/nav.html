@@ -32,11 +32,26 @@
       </a>
     </nav>
 
+    {% assign lang = page.lang | default: 'en' %}
+    {% assign current = page.url | remove_first: '/de' | remove_first: '/ru' %}
+
     <div class="lang-switcher">
-      <a href="/" class="{% if lang == 'en' %}active{% endif %}">EN</a>
-      <a href="/de/" class="{% if lang == 'de' %}active{% endif %}">DE</a>
-      <a href="/ru/" class="{% if lang == 'ru' %}active{% endif %}">RU</a>
+    <a href="{{ current | default: '/' }}"
+        class="{% if lang == 'en' %}active{% endif %}">
+        EN
+    </a>
+
+    <a href="/de{{ current }}"
+        class="{% if lang == 'de' %}active{% endif %}">
+        DE
+    </a>
+
+    <a href="/ru{{ current }}"
+        class="{% if lang == 'ru' %}active{% endif %}">
+        RU
+    </a>
     </div>
+
 
   </div>
 </header>
