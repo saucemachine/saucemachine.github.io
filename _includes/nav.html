@@ -1,6 +1,19 @@
 <nav class="site-nav">
   <a href="/" {% if page.url == "/" %}class="active"{% endif %}>Home</a>
-  <a href="/work" {% if page.url == "/work" %}class="active"{% endif %}>Work</a>
-  <a href="/notes" {% if page.url == "/notes" %}class="active"{% endif %}>Notes</a>
-  <a href="/research" {% if page.url == "/research" %}class="active"{% endif %}>Research</a>
+
+  <a href="/work"
+     {% if page.url contains "/work" %}class="active"{% endif %}>
+     Work
+  </a>
+
+  <a href="/notes"
+     {% if page.url contains "/notes" %}class="active"{% endif %}>
+     Notes
+  </a>
+
+  <a href="/research"
+     {% if page.url contains "/research" %}class="active"{% endif %}>
+     Research
+  </a>
 </nav>
+
