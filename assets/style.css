@@ -35,12 +35,10 @@ html, body {
   justify-content: center;
   gap: 2.75rem;
 
-  /* spacing */
   padding-top: 3rem;
   padding-bottom: 1.75rem;
   margin-bottom: 4rem;
 
-  /* subtle structure */
   border-bottom: 1px solid #2a2a2a;
 }
 
@@ -51,10 +49,19 @@ html, body {
   text-decoration: none;
   text-transform: uppercase;
   font-size: 0.8rem;
+
+  transition: color 120ms ease;
 }
 
 .site-nav a:hover {
   color: var(--fg);
+}
+
+/* Active tab */
+.site-nav a.active {
+  color: var(--fg);
+  border-bottom: 1px solid var(--accent);
+  padding-bottom: 0.35rem;
 }
 
 /* ---------- Typography ---------- */
@@ -65,13 +72,24 @@ h1 {
 
 h2 {
   font-size: 1.4rem;
-  margin-top: 3.5rem;
+  margin-top: 3.75rem;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+/* Section lead-in rule (quiet visual flair) */
+h2::before {
+  content: "";
+  display: block;
+  width: 3rem;
+  height: 1px;
+  background: var(--border);
   margin-bottom: 1rem;
 }
 
 h3 {
   font-size: 1.1rem;
-  margin-top: 2.5rem;
+  margin-top: 2.75rem;
   margin-bottom: 0.25rem;
 }
 
@@ -80,8 +98,13 @@ p {
   color: var(--fg);
 }
 
-/* Subtle subtitle feel */
+/* Subtitle feel under main heading */
 h1 + p {
+  color: var(--muted);
+}
+
+/* Slight role/description separation */
+h3 + p {
   color: var(--muted);
 }
 
@@ -95,15 +118,21 @@ a:hover {
   text-decoration: underline;
 }
 
+/* ---------- Emphasis ---------- */
+strong {
+  color: var(--accent);
+  font-weight: 500;
+}
+
 /* ---------- Lists ---------- */
 ul {
   margin-top: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 2.25rem;
   padding-left: 1.25rem;
 }
 
 li {
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.65rem;
   color: var(--fg);
 }
 
@@ -111,7 +140,7 @@ li {
 hr {
   border: none;
   border-top: 1px solid var(--border);
-  margin: 3.5rem 0;
+  margin: 3.75rem 0;
 }
 
 /* ---------- Footer ---------- */
