@@ -1,0 +1,95 @@
+/* ---------- Theme variables ---------- */
+:root {
+  --bg: #0f0f0f;
+  --fg: #eaeaea;
+  --muted: #9a9a9a;
+  --accent: #6aa7c9; /* calmer blue accent */
+}
+
+/* ---------- Global reset ---------- */
+* {
+  box-sizing: border-box;
+}
+
+/* ---------- Base body ---------- */
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+  line-height: 1.65;
+}
+
+/* ---------- Kill Slate header ---------- */
+.page-header {
+  display: none;
+}
+
+/* ---------- Main content ---------- */
+.main-content {
+  background: var(--bg);
+  color: var(--fg);
+  padding-top: 0;
+}
+
+/* ---------- Typography ---------- */
+h1, h2, h3 {
+  color: var(--fg);
+}
+
+h1 {
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+}
+
+p {
+  color: var(--fg);
+  max-width: 52rem;
+}
+
+/* ---------- Links ---------- */
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ---------- Top navigation ---------- */
+.site-nav {
+  position: sticky;
+  top: 0;
+  background: var(--bg);
+  max-width: 64rem;
+  margin: 2rem auto 2.5rem;
+  padding: 0 2rem;
+}
+
+.site-nav a {
+  margin-right: 1.75rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--fg);
+}
+
+.site-nav a:hover {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+  background: var(--bg);
+  color: var(--muted);
+  border-top: 1px solid #222;
+}
+
+.site-footer a {
+  color: var(--muted);
+}
+
+.site-footer a:hover {
+  color: var(--fg);
+}
