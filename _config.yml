@@ -3,3 +3,7 @@ description: Founder · Mortgage Intelligence · Knowledge Graphs & Applied ML
 theme: jekyll-theme-slate
 show_downloads: false
 repository: ""
+author: Vladimir Belsch
+url: https://saucemachine.github.io
+markdown: kramdown
+highlighter: rouge
