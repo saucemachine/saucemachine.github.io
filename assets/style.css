@@ -143,6 +143,44 @@ hr {
   margin: 3.75rem 0;
 }
 
+/* ---------- Notes (collapsible entries) ---------- */
+details {
+  max-width: 52rem;
+  margin-bottom: 2.5rem;
+  padding-left: 0.25rem;
+}
+
+summary {
+  cursor: pointer;
+  color: var(--fg);
+  font-size: 1rem;
+  list-style: none;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+summary::before {
+  content: "›";
+  display: inline-block;
+  margin-right: 0.6rem;
+  color: var(--muted);
+  transform: rotate(0deg);
+  transition: transform 120ms ease;
+}
+
+details[open] summary::before {
+  transform: rotate(90deg);
+  color: var(--accent);
+}
+
+details p {
+  margin-top: 1rem;
+  color: var(--muted);
+}
+
+
 /* ---------- Footer ---------- */
 .site-footer {
   max-width: 64rem;
