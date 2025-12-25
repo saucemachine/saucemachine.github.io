@@ -1,40 +1,46 @@
+{% assign lang = page.lang | default: 'en' %}
+{% if lang == 'en' %}
+  {% assign base = '' %}
+{% else %}
+  {% assign base = '/' | append: lang %}
+{% endif %}
+
 <header class="site-header">
   <div class="nav-inner">
 
     <div class="nav-spacer"></div>
 
     <nav class="site-nav">
-      {% if page.lang == "ru" %}
-        <a href="/" class="{% if page.title == 'Home' %}active{% endif %}">Главная</a>
-        <a href="/about" class="{% if page.title == 'About' %}active{% endif %}">Обо мне</a>
-        <a href="/work" class="{% if page.title == 'Work' %}active{% endif %}">Работа</a>
-        <a href="/notes" class="{% if page.title == 'Notes' %}active{% endif %}">Заметки</a>
-        <a href="/research" class="{% if page.title == 'Research' %}active{% endif %}">Исследования</a>
+      <a href="{{ base }}/" class="{% if page.title == 'Home' %}active{% endif %}">
+        {% if lang == 'de' %}Start{% elsif lang == 'ru' %}Главная{% else %}Home{% endif %}
+      </a>
 
-      {% elsif page.lang == "de" %}
-        <a href="/" class="{% if page.title == 'Home' %}active{% endif %}">Start</a>
-        <a href="/about" class="{% if page.title == 'About' %}active{% endif %}">Über mich</a>
-        <a href="/work" class="{% if page.title == 'Work' %}active{% endif %}">Arbeit</a>
-        <a href="/notes" class="{% if page.title == 'Notes' %}active{% endif %}">Notizen</a>
-        <a href="/research" class="{% if page.title == 'Research' %}active{% endif %}">Forschung</a>
+      <a href="{{ base }}/about" class="{% if page.title == 'About' %}active{% endif %}">
+        {% if lang == 'de' %}Über{% elsif lang == 'ru' %}Обо мне{% else %}About{% endif %}
+      </a>
 
-      {% else %}
-        <a href="/" class="{% if page.title == 'Home' %}active{% endif %}">Home</a>
-        <a href="/about" class="{% if page.title == 'About' %}active{% endif %}">About</a>
-        <a href="/work" class="{% if page.title == 'Work' %}active{% endif %}">Work</a>
-        <a href="/notes" class="{% if page.title == 'Notes' %}active{% endif %}">Notes</a>
-        <a href="/research" class="{% if page.title == 'Research' %}active{% endif %}">Research</a>
-      {% endif %}
+      <a href="{{ base }}/work" class="{% if page.title == 'Work' %}active{% endif %}">
+        {% if lang == 'de' %}Arbeit{% elsif lang == 'ru' %}Работа{% else %}Work{% endif %}
+      </a>
+
+      <a href="{{ base }}/notes" class="{% if page.title == 'Notes' %}active{% endif %}">
+        {% if lang == 'de' %}Notizen{% elsif lang == 'ru' %}Заметки{% else %}Notes{% endif %}
+      </a>
+
+      <a href="{{ base }}/research" class="{% if page.title == 'Research' %}active{% endif %}">
+        {% if lang == 'de' %}Forschung{% elsif lang == 'ru' %}Исследования{% else %}Research{% endif %}
+      </a>
     </nav>
 
     <div class="lang-switcher">
-      <a href="/" class="{% if page.lang == 'en' or page.lang == nil %}active{% endif %}">EN</a>
-      <a href="/de/" class="{% if page.lang == 'de' %}active{% endif %}">DE</a>
-      <a href="/ru/" class="{% if page.lang == 'ru' %}active{% endif %}">RU</a>
+      <a href="/" class="{% if lang == 'en' %}active{% endif %}">EN</a>
+      <a href="/de/" class="{% if lang == 'de' %}active{% endif %}">DE</a>
+      <a href="/ru/" class="{% if lang == 'ru' %}active{% endif %}">RU</a>
     </div>
 
   </div>
 </header>
+
 
 
 
