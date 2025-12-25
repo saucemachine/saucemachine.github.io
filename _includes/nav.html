@@ -12,10 +12,11 @@
     </nav>
 
     <div class="lang-switcher">
-      <a href="/en" class="{% if page.lang == 'en' %}active{% endif %}">EN</a>
-      <a href="/de" class="{% if page.lang == 'de' %}active{% endif %}">DE</a>
-      <a href="/ru" class="{% if page.lang == 'ru' %}active{% endif %}">RU</a>
+    <a href="/" class="{% if page.lang == 'en' or page.lang == nil %}active{% endif %}">EN</a>
+    <a href="/de/" class="{% if page.lang == 'de' %}active{% endif %}">DE</a>
+    <a href="/ru/" class="{% if page.lang == 'ru' %}active{% endif %}">RU</a>
     </div>
+
 
   </div>
 </header>
