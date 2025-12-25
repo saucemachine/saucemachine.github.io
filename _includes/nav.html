@@ -4,17 +4,17 @@
     <div class="nav-spacer"></div>
 
     <nav class="site-nav">
-      <a href="/" class="active">Home</a>
-      <a href="/about">About</a>
-      <a href="/work">Work</a>
-      <a href="/notes">Notes</a>
-      <a href="/research">Research</a>
+      <a href="/" class="{% if page.title == 'Home' %}active{% endif %}">Home</a>
+      <a href="/about" class="{% if page.title == 'About' %}active{% endif %}">About</a>
+      <a href="/work" class="{% if page.title == 'Work' %}active{% endif %}">Work</a>
+      <a href="/notes" class="{% if page.title == 'Notes' %}active{% endif %}">Notes</a>
+      <a href="/research" class="{% if page.title == 'Research' %}active{% endif %}">Research</a>
     </nav>
 
     <div class="lang-switcher">
-      <a href="/en" class="active">EN</a>
-      <a href="/de">DE</a>
-      <a href="/ru">RU</a>
+      <a href="/en" class="{% if page.lang == 'en' %}active{% endif %}">EN</a>
+      <a href="/de" class="{% if page.lang == 'de' %}active{% endif %}">DE</a>
+      <a href="/ru" class="{% if page.lang == 'ru' %}active{% endif %}">RU</a>
     </div>
 
   </div>
