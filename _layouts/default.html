@@ -3,9 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>{{ page.title }}</title>
     {% seo %}
+
+    <!-- Styles -->
     <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
+
+    <!-- hreflang -->
+    <link rel="alternate" hreflang="en" href="{{ site.url }}/" />
+    <link rel="alternate" hreflang="de" href="{{ site.url }}/de/" />
+    <link rel="alternate" hreflang="ru" href="{{ site.url }}/ru/" />
+    <link rel="alternate" hreflang="x-default" href="{{ site.url }}/" />
   </head>
 
   <body>
@@ -19,7 +28,10 @@
 
     <!-- Footer -->
     <footer class="site-footer">
-      <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+      <p>
+        Published with <a href="https://pages.github.com">GitHub Pages</a>
+      </p>
     </footer>
   </body>
 </html>
+
