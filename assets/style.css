@@ -27,13 +27,31 @@ body {
 }
 
 /* =========================================================
-   Header (nav + language selector)
+   Sticky header
    ========================================================= */
 .site-header {
   position: sticky;
   top: 0;
   z-index: 100;
   background: var(--bg);
+  border-bottom: 1px solid #2a2a2a;
+}
+
+/* =========================================================
+   Header inner layout (nav + language)
+   ========================================================= */
+.nav-inner {
+  max-width: 64rem;
+  margin: 0 auto;
+  padding: 2rem 2rem 1.5rem;
+
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+}
+
+.nav-spacer {
+  pointer-events: none;
 }
 
 /* =========================================================
@@ -41,14 +59,7 @@ body {
    ========================================================= */
 .site-nav {
   display: flex;
-  justify-content: center;
   gap: 2.75rem;
-
-  padding-top: 2rem;
-  padding-bottom: 1.75rem;
-  margin-bottom: 4rem;
-
-  border-bottom: 1px solid #2a2a2a;
 }
 
 .site-nav a {
@@ -75,10 +86,7 @@ body {
    Language selector
    ========================================================= */
 .lang-switcher {
-  position: absolute;
-  top: 3.1rem;
-  right: 2rem;
-
+  justify-self: end;
   font-size: 0.75rem;
   letter-spacing: 0.08em;
 }
@@ -105,9 +113,8 @@ body {
 .main-content {
   max-width: 64rem;
   margin: 0 auto;
-  padding: 4rem 2rem 3rem;
+  padding: 5rem 2rem 3rem;
   background: transparent;
-  padding-top: 5rem;
 }
 
 /* =========================================================
@@ -115,7 +122,7 @@ body {
    ========================================================= */
 h1 {
   font-size: 2.4rem;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
 }
 
 h2 {
@@ -125,7 +132,6 @@ h2 {
   position: relative;
 }
 
-/* Section lead-in rule */
 h2::before {
   content: "";
   display: block;
@@ -146,12 +152,10 @@ p {
   color: var(--fg);
 }
 
-/* Subtitle feel */
 h1 + p {
   color: var(--muted);
 }
 
-/* Role / description separation */
 h3 + p {
   color: var(--muted);
 }
@@ -198,17 +202,12 @@ hr {
 /* =========================================================
    Home hero layout
    ========================================================= */
-
 .home-hero {
   display: grid;
   grid-template-columns: 260px minmax(0, 1fr);
   gap: 4rem;
   align-items: start;
   margin-bottom: 4rem;
-}
-
-.hero-image {
-  align-self: flex-start;
 }
 
 .hero-image img {
@@ -219,10 +218,8 @@ hr {
   filter: grayscale(8%) contrast(96%);
 }
 
-/* Hero text tuning */
 .hero-text h1 {
   margin-top: 0;
-  margin-bottom: 0.5rem;
 }
 
 .hero-subtitle {
@@ -232,12 +229,11 @@ hr {
   letter-spacing: 0.02em;
 }
 
-/* Optically centre the block */
 .hero-text p {
   max-width: 48rem;
 }
 
-/* Responsive */
+/* Responsive hero */
 @media (max-width: 900px) {
   .home-hero {
     grid-template-columns: 1fr;
@@ -248,7 +244,6 @@ hr {
     margin-bottom: 2rem;
   }
 }
-
 
 /* =========================================================
    Notes index (tile layout)
