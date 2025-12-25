@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Home
+lang: en
 ---
 
 # Vladimir Belsch
@@ -15,4 +16,4 @@ The emphasis is on building systems that can be understood, adapted, and maintai
 ---
 
 [Work](/work) · [Notes](/notes) · [Research](/research) ·  
-[GitHub](https://github.com/saucemachine) · [LinkedIn](https://linkedin.com/in/your-link) · [Email](mailto:you@email.com)
+[GitHub](https://github.com/saucemachine) · [LinkedIn](https://linkedin.com/in/vladimirbelsch) · [Email](mailto:you@email.com)

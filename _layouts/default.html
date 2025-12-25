@@ -9,8 +9,18 @@
   </head>
 
   <body>
-    <!-- Persistent top navigation -->
-    {% include nav.html %}
+    <!-- Header -->
+    <header class="site-header">
+      <!-- Persistent top navigation -->
+      {% include nav.html %}
+
+      <!-- Language selector -->
+      <div class="lang-switcher">
+        <a href="/" class="{% if page.lang == 'en' or page.lang == nil %}active{% endif %}">EN</a>
+        <a href="/de/" class="{% if page.lang == 'de' %}active{% endif %}">DE</a>
+        <a href="/ru/" class="{% if page.lang == 'ru' %}active{% endif %}">RU</a>
+      </div>
+    </header>
 
     <!-- Page content -->
     <main class="main-content">

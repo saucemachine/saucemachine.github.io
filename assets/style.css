@@ -27,13 +27,10 @@ body {
 }
 
 /* =========================================================
-   Layout
+   Header (nav + language selector)
    ========================================================= */
-.main-content {
-  max-width: 64rem;
-  margin: 0 auto;
-  padding: 4rem 2rem 3rem;
-  background: transparent;
+.site-header {
+  position: relative;
 }
 
 /* =========================================================
@@ -69,6 +66,44 @@ body {
   color: var(--fg);
   border-bottom: 1px solid var(--accent);
   padding-bottom: 0.35rem;
+}
+
+/* =========================================================
+   Language selector
+   ========================================================= */
+.lang-switcher {
+  position: absolute;
+  top: 3.1rem;
+  right: 2rem;
+
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+}
+
+.lang-switcher a {
+  color: var(--muted);
+  text-decoration: none;
+  margin-left: 0.75rem;
+}
+
+.lang-switcher a:hover {
+  color: var(--fg);
+}
+
+.lang-switcher a.active {
+  color: var(--fg);
+  border-bottom: 1px solid var(--accent);
+  padding-bottom: 0.15rem;
+}
+
+/* =========================================================
+   Layout
+   ========================================================= */
+.main-content {
+  max-width: 64rem;
+  margin: 0 auto;
+  padding: 4rem 2rem 3rem;
+  background: transparent;
 }
 
 /* =========================================================
