@@ -30,7 +30,10 @@ body {
    Header (nav + language selector)
    ========================================================= */
 .site-header {
-  position: relative;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--bg);
 }
 
 /* =========================================================
@@ -41,7 +44,7 @@ body {
   justify-content: center;
   gap: 2.75rem;
 
-  padding-top: 3rem;
+  padding-top: 2rem;
   padding-bottom: 1.75rem;
   margin-bottom: 4rem;
 
@@ -104,6 +107,7 @@ body {
   margin: 0 auto;
   padding: 4rem 2rem 3rem;
   background: transparent;
+  padding-top: 5rem;
 }
 
 /* =========================================================
