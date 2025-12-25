@@ -3,8 +3,6 @@ layout: default
 title: Vladimir Belsch
 ---
 
-{% include nav.html %}
-
 # Vladimir Belsch
 
 Founder / Developer · Mortgage Intelligence · Knowledge Graphs & Applied ML
