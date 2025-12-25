@@ -143,17 +143,20 @@ hr {
   margin: 3.75rem 0;
 }
 
-/* ---------- Notes (collapsible entries) ---------- */
+/* ---------- Notes (collapsible, blog-like) ---------- */
 details {
   max-width: 52rem;
-  margin-bottom: 2.5rem;
-  padding-left: 0.25rem;
+  margin-bottom: 3rem;
+  padding: 1.5rem 1.75rem;
+  border-left: 2px solid var(--border);
+  background: rgba(255, 255, 255, 0.02);
 }
 
 summary {
   cursor: pointer;
+  font-size: 1.05rem;
+  font-weight: 500;
   color: var(--fg);
-  font-size: 1rem;
   list-style: none;
 }
 
@@ -164,10 +167,10 @@ summary::-webkit-details-marker {
 summary::before {
   content: "›";
   display: inline-block;
-  margin-right: 0.6rem;
+  margin-right: 0.75rem;
   color: var(--muted);
   transform: rotate(0deg);
-  transition: transform 120ms ease;
+  transition: transform 120ms ease, color 120ms ease;
 }
 
 details[open] summary::before {
@@ -175,9 +178,29 @@ details[open] summary::before {
   color: var(--accent);
 }
 
+details[open] {
+  border-left-color: var(--accent);
+  background: rgba(255, 255, 255, 0.035);
+}
+
 details p {
-  margin-top: 1rem;
+  margin-top: 1.25rem;
   color: var(--muted);
+  max-width: 48rem;
+}
+
+/* ---------- Code blocks ---------- */
+pre {
+  background: #111;
+  padding: 1rem 1.25rem;
+  overflow-x: auto;
+  border-left: 2px solid var(--border);
+  margin-top: 1.25rem;
+}
+
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.9rem;
 }
 
 

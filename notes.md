@@ -14,18 +14,23 @@ thoughts worth keeping.
 <details>
 <summary><strong>Decision Surfaces vs Rule Engines</strong></summary>
 
-Rule engines dominate underwriting systems because they are easy to explain,
-audit, and enforce. Their failure mode is rigidity: every exception must be
-anticipated in advance.
+**Context**  
+Most underwriting systems still rely on rule engines because they are legible,
+auditable, and easy to reason about under regulatory pressure.
 
-Decision surfaces, whether learned or hand-constructed, behave differently.
-They allow local smoothness and global constraint simultaneously. Instead of
-encoding *what must happen*, they encode *what is likely to happen* under
-similar conditions.
+**Observation**  
+Rule engines fail at boundaries. Every exception must be anticipated in advance,
+and once exceptions accumulate, the rule set becomes opaque even to its authors.
 
-In practice, most production systems end up hybrid:
-- hard constraints for regulatory or structural limits
-- soft decision surfaces for ranking, routing, or appetite estimation
+**Alternative**  
+Decision surfaces allow smooth local behavior while respecting global constraints.
+They model *likelihood*, not *permission*.
+
+**Practice**  
+In production systems, the most robust architecture is hybrid:
+
+- hard constraints for structural limits
+- soft surfaces for ranking, routing, and appetite estimation
 
 The mistake is treating these as competing paradigms rather than layers.
 </details>
@@ -71,6 +76,16 @@ In these cases, explainability must shape the model *itself*. Feature design,
 aggregation logic, and thresholding should all be influenced by what can be
 reasonably explained to a human operator.
 
+```python
+def score(application):
+    constraints = hard_constraints(application)
+    surface_score = model.predict(application.features)
+
+    if not constraints:
+        return None
+
+    return surface_score
+
 This does not imply simplistic models. It implies models whose internal logic
 maps cleanly onto human concepts.
 </details>
@@ -80,17 +95,14 @@ maps cleanly onto human concepts.
 <details>
 <summary><strong>Lender Appetite Is Not a Scalar</strong></summary>
 
-Many systems model appetite as a single score or acceptance probability.
-This hides important structure.
+![Conditional appetite sketch](/assets/appetite-graph.png)
 
-In reality, appetite is conditional:
-- on deal type
-- on risk distribution
-- on operational capacity
-- on recent outcomes
+Appetite varies across dimensions:
+- deal type
+- risk distribution
+- operational load
+- recent outcomes
 
-Graph representations make this explicit by allowing appetite to exist at the
-intersection of multiple dimensions, rather than as a global attribute.
-
-This is less convenient, but more faithful to how decisions are actually made.
+Graph representations allow appetite to exist at intersections,
+not as a global score.
 </details>
