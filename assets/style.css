@@ -197,9 +197,14 @@ hr {
 
 .home-hero {
   display: grid;
-  grid-template-columns: 180px 1fr;
-  gap: 3rem;
+  grid-template-columns: 260px minmax(0, 1fr);
+  gap: 4rem;
   align-items: start;
+  margin-bottom: 4rem;
+}
+
+.hero-image {
+  align-self: flex-start;
 }
 
 .hero-image img {
@@ -207,29 +212,39 @@ hr {
   height: auto;
   border-radius: 2px;
   border: 1px solid var(--border);
+  filter: grayscale(8%) contrast(96%);
 }
 
-/* Slightly soften the image */
-.hero-image img {
-  filter: grayscale(10%) contrast(95%);
-}
-
-/* Text alignment */
+/* Hero text tuning */
 .hero-text h1 {
   margin-top: 0;
+  margin-bottom: 0.5rem;
 }
 
-/* Responsive behaviour */
-@media (max-width: 768px) {
+.hero-subtitle {
+  color: var(--muted);
+  margin-bottom: 1.75rem;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+}
+
+/* Optically centre the block */
+.hero-text p {
+  max-width: 48rem;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
   .home-hero {
     grid-template-columns: 1fr;
   }
 
   .hero-image {
-    max-width: 200px;
+    max-width: 220px;
     margin-bottom: 2rem;
   }
 }
+
 
 /* =========================================================
    Notes index (tile layout)
