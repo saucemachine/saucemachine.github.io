@@ -34,7 +34,6 @@ body {
   top: 0;
   z-index: 100;
   background: var(--bg);
-  border-bottom: 1px solid #2a2a2a;
 }
 
 /* =========================================================
@@ -80,31 +79,6 @@ body {
   color: var(--fg);
   border-bottom: 1px solid var(--accent);
   padding-bottom: 0.35rem;
-}
-
-/* =========================================================
-   Language selector
-   ========================================================= */
-.lang-switcher {
-  justify-self: end;
-  font-size: 0.75rem;
-  letter-spacing: 0.08em;
-}
-
-.lang-switcher a {
-  color: var(--muted);
-  text-decoration: none;
-  margin-left: 0.75rem;
-}
-
-.lang-switcher a:hover {
-  color: var(--fg);
-}
-
-.lang-switcher a.active {
-  color: var(--fg);
-  border-bottom: 1px solid var(--accent);
-  padding-bottom: 0.15rem;
 }
 
 /* =========================================================
