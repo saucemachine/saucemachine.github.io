@@ -1,4 +1,23 @@
 {% assign lang = page.lang | default: 'en' %}
+
+{%- comment -%}
+Normalise the current path by stripping language prefixes.
+Examples:
+  /de/work/ -> /work/
+  /ru/notes/ -> /notes/
+  / -> /
+{%- endcomment -%}
+{% assign path = page.url
+  | remove_first: '/de'
+  | remove_first: '/ru'
+%}
+
+{%- comment -%}
+Base prefix for links.
+EN lives at /
+DE -> /de
+RU -> /ru
+{%- endcomment -%}
 {% if lang == 'en' %}
   {% assign base = '' %}
 {% else %}
@@ -11,51 +30,55 @@
     <div class="nav-spacer"></div>
 
     <nav class="site-nav">
-      <a href="{{ base }}/" class="{% if page.title == 'Home' %}active{% endif %}">
+
+      <a href="{{ base }}/"
+         class="{% if path == '/' %}active{% endif %}">
         {% if lang == 'de' %}Start{% elsif lang == 'ru' %}Главная{% else %}Home{% endif %}
       </a>
 
-      <a href="{{ base }}/about" class="{% if page.title == 'About' %}active{% endif %}">
+      <a href="{{ base }}/about"
+         class="{% if path == '/about/' or path == '/about' %}active{% endif %}">
         {% if lang == 'de' %}Über{% elsif lang == 'ru' %}Обо мне{% else %}About{% endif %}
       </a>
 
-      <a href="{{ base }}/work" class="{% if page.title == 'Work' %}active{% endif %}">
+      <a href="{{ base }}/work"
+         class="{% if path == '/work/' or path == '/work' %}active{% endif %}">
         {% if lang == 'de' %}Arbeit{% elsif lang == 'ru' %}Работа{% else %}Work{% endif %}
       </a>
 
-      <a href="{{ base }}/notes" class="{% if page.title == 'Notes' %}active{% endif %}">
+      <a href="{{ base }}/notes"
+         class="{% if path == '/notes/' or path == '/notes' %}active{% endif %}">
         {% if lang == 'de' %}Notizen{% elsif lang == 'ru' %}Заметки{% else %}Notes{% endif %}
       </a>
 
-      <a href="{{ base }}/research" class="{% if page.title == 'Research' %}active{% endif %}">
+      <a href="{{ base }}/research"
+         class="{% if path == '/research/' or path == '/research' %}active{% endif %}">
         {% if lang == 'de' %}Forschung{% elsif lang == 'ru' %}Исследования{% else %}Research{% endif %}
       </a>
+
     </nav>
 
-    {% assign lang = page.lang | default: 'en' %}
-    {% assign current = page.url | remove_first: '/de' | remove_first: '/ru' %}
-
+    {%- comment -%}
+Language switcher stays on the same path.
+{%- endcomment -%}
     <div class="lang-switcher">
-    <a href="{{ current | default: '/' }}"
-        class="{% if lang == 'en' %}active{% endif %}">
+      <a href="{{ path | default: '/' }}"
+         class="{% if lang == 'en' %}active{% endif %}">
         EN
-    </a>
+      </a>
 
-    <a href="/de{{ current }}"
-        class="{% if lang == 'de' %}active{% endif %}">
+      <a href="/de{{ path }}"
+         class="{% if lang == 'de' %}active{% endif %}">
         DE
-    </a>
+      </a>
 
-    <a href="/ru{{ current }}"
-        class="{% if lang == 'ru' %}active{% endif %}">
+      <a href="/ru{{ path }}"
+         class="{% if lang == 'ru' %}active{% endif %}">
         RU
-    </a>
+      </a>
     </div>
-
 
   </div>
 </header>
-
-
 
 
