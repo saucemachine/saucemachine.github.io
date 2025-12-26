@@ -1,22 +1,40 @@
 {% assign lang = page.lang | default: 'en' %}
 
 {%- comment -%}
-Normalise the current path by stripping language prefixes.
-Examples:
-  /de/work/ -> /work/
-  /ru/notes/ -> /notes/
+Normalise URL:
+- remove language prefix
+- remove /index.html
+- remove trailing slash
+Result examples:
+  /ru/work/index.html -> /work
+  /de/notes/ -> /notes
   / -> /
 {%- endcomment -%}
 {% assign path = page.url
   | remove_first: '/de'
   | remove_first: '/ru'
+  | remove: '/index.html'
+  | replace: '//', '/'
 %}
 
+{% if path != '/' %}
+  {% assign path = path | remove_last: '/' %}
+{% endif %}
+
 {%- comment -%}
-Base prefix for links.
-EN lives at /
-DE -> /de
-RU -> /ru
+Extract section key:
+  /work -> work
+  /notes -> notes
+  / -> home
+{%- endcomment -%}
+{% if path == '/' %}
+  {% assign section = 'home' %}
+{% else %}
+  {% assign section = path | split: '/' | last %}
+{% endif %}
+
+{%- comment -%}
+Base prefix for links
 {%- endcomment -%}
 {% if lang == 'en' %}
   {% assign base = '' %}
@@ -32,34 +50,34 @@ RU -> /ru
     <nav class="site-nav">
 
       <a href="{{ base }}/"
-         class="{% if path == '/' %}active{% endif %}">
+         class="{% if section == 'home' %}active{% endif %}">
         {% if lang == 'de' %}Start{% elsif lang == 'ru' %}Главная{% else %}Home{% endif %}
       </a>
 
       <a href="{{ base }}/about"
-         class="{% if path == '/about/' or path == '/about' %}active{% endif %}">
+         class="{% if section == 'about' %}active{% endif %}">
         {% if lang == 'de' %}Über{% elsif lang == 'ru' %}Обо мне{% else %}About{% endif %}
       </a>
 
       <a href="{{ base }}/work"
-         class="{% if path == '/work/' or path == '/work' %}active{% endif %}">
+         class="{% if section == 'work' %}active{% endif %}">
         {% if lang == 'de' %}Arbeit{% elsif lang == 'ru' %}Работа{% else %}Work{% endif %}
       </a>
 
       <a href="{{ base }}/notes"
-         class="{% if path == '/notes/' or path == '/notes' %}active{% endif %}">
+         class="{% if section == 'notes' %}active{% endif %}">
         {% if lang == 'de' %}Notizen{% elsif lang == 'ru' %}Заметки{% else %}Notes{% endif %}
       </a>
 
       <a href="{{ base }}/research"
-         class="{% if path == '/research/' or path == '/research' %}active{% endif %}">
+         class="{% if section == 'research' %}active{% endif %}">
         {% if lang == 'de' %}Forschung{% elsif lang == 'ru' %}Исследования{% else %}Research{% endif %}
       </a>
 
     </nav>
 
     {%- comment -%}
-Language switcher stays on the same path.
+Language switcher: stay on same section
 {%- endcomment -%}
     <div class="lang-switcher">
       <a href="{{ path | default: '/' }}"
@@ -80,5 +98,6 @@ Language switcher stays on the same path.
 
   </div>
 </header>
+
 
 
